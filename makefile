@@ -1,49 +1,82 @@
+GO := GO111MODULE=on go
+
+.PHONY: all
 all: collections constraints functions interfaces
 
+.PHONY: collections
 collections: list set
 
+.PHONY: constraints
 constraints: basic comparable custom inlined
 
+.PHONY: functions
 functions: printer filter
 
+.PHONY: interfaces
 interfaces: worker
 
 # ======================
 # collections
 
+.PHONY: list
 list:
-	go run ./cmd/collections/list/main.go
+	@echo "running list examples..."
+	@$(GO) run ./cmd/collections/list/main.go
+	@echo
 
+.PHONY: set
 set:
-	go run ./cmd/collections/set/main.go
+	@echo "running set examples..."
+	@$(GO) run ./cmd/collections/set/main.go
+	@echo
 
 # ======================
 # constraints
 
+.PHONY: basic
 basic:
-	go run ./cmd/constraints/basic/main.go
+	@echo "running basic examples..."
+	@$(GO) run ./cmd/constraints/basic/main.go
+	@echo
 
+.PHONY: comparable
 comparable:
-	go run ./cmd/constraints/comparable/main.go
+	@echo "running comparable examples..."
+	@$(GO) run ./cmd/constraints/comparable/main.go
+	@echo
 
+.PHONY: custom
 custom:
-	go run ./cmd/constraints/custom/main.go
+	@echo "running custom examples..."
+	@$(GO) run ./cmd/constraints/custom/main.go
+	@echo
 
+.PHONY: inlined
 inlined:
-	go run ./cmd/constraints/inlined/main.go
+	@echo "running inlined examples..."
+	@$(GO) run ./cmd/constraints/inlined/main.go
+	@echo
 
 # ======================
 # functions
 
+.PHONY: printer
 printer:
-	go run ./cmd/functions/printer/main.go
+	@echo "running printer examples..."
+	@$(GO) run ./cmd/functions/printer/main.go
+	@echo
 
+.PHONY: filter
 filter:
-	go run ./cmd/functions/filter/main.go
+	@echo "running filter examples..."
+	@$(GO) run ./cmd/functions/filter/main.go
+	@echo
 
 # ======================
 # interfaces:
 
+.PHONY: worker
 worker:
-	go run ./cmd/interfaces/worker/main.go
-
+	@echo "running worker examples..."
+	@$(GO) run ./cmd/interfaces/worker/main.go
+	@echo
